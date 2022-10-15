@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+//peak index using binary search, mountain wali problem
+
+int peak_index(int arr[], int size) {
+    
+    int start=0;
+    int end=size-1;
+    int mid= start+((end-start)/2);
+    while (start<end) { //yahan <= nahi lagega
+    
+        if (arr[mid]<arr[mid+1]) {
+            
+            start=mid+1;
+            int ans=mid;
+        }
+        else{
+            
+            end=mid;
+            int ans=mid;
+        }
+        mid=start+((end-start)/2);
+    }
+    return mid;
+}
+
+int main() {
+    
+    int arr[7]={1,2,4,8,6,5,3};
+    int ans= peak_index(arr,7);
+    cout << ans;
+}

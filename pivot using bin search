@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int pivot( int arr[], int size){
+    
+    int start=0;
+    int end= size-1;
+    int mid= (start+end)/2;
+    int ans;
+    while (start<end) {
+        
+        if (arr[mid]>=arr[0]) { //>= isiliye laga kyuki 1st line pe arr[0] khud bhi hoga aur hume pure 1st line ko represent karna hai
+            
+            start= mid+1;
+            ans = arr[start];
+        }
+        else {
+            
+            end=mid;
+            ans= arr[end];
+        }
+        mid =(start+end)/2;
+    }
+    return ans;
+}
+
+int main() {
+    
+    int arr[5]={7,9,1,2,3};
+    int ans=pivot(arr,5);
+    cout << ans;
+}
